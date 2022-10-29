@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'business_project.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'business_project',
-	'USER': 'ersel',
-	'PASSWORD': 'mrkizmaz1',
-	'HOST': 'localhost',
-	'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'business_project',
+        'USER': 'ersel',
+        'PASSWORD': 'mrkizmaz1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
