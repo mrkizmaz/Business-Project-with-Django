@@ -1,7 +1,27 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" href="/" style="font-size: 18px; margin-left: 10px;">BUSINESS PORTAL</a>
 
-  <div class="navbar-nav mr-auto">
-    <a href="/" class="nav-item nav-link active"><b>BUSINESS APPLICATION</b></a>              
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+   
+      {% if request.user.is_authenticated %}
+      <li class="nav-item nav-link active">Welcome, <b>{{request.user.username}}</b></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dashboard
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="manager/users">Check Users</a>
+          <a class="dropdown-item" href="manager/jobs">Business Posts</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item active"><a href="manager/logout"><button class="button_nav btn_logout"><b>Sign Out</b></button></a></li>
+      {% else %}
+      <li class="nav-item active"><a href="manager/login"><button class="button_nav btn_login"><b>Sign In</b></button></a></li>
+      {% endif %}
+    </ul>
+ 
   </div>
-
 </nav>

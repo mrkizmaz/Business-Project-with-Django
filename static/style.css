@@ -29,11 +29,12 @@ h1, h2, h3, h4, h5, h6, strong {
     color: var(--mainText);
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 500;
+}
 
-    text-shadow:
-    0px 2px 0px #b2a98f,
-    0px 4px 3px rgba(0,0,0,0.15),
-    0px 4px 1px rgba(0,0,0,0.1);
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #17a2b8;
 }
 
 
@@ -42,19 +43,6 @@ p, li, span, label, input, textarea {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-
-a {
-    text-decoration: none;
-    font-weight: 700;
-}
-
-
-h1 { font-size: 42px;}
-h2 { font-size: 34px;}
-h3 { font-size: 26px;}
-h4 { font-size: 22px;}
-h5 { font-size: 20px;}
-h6 { font-size: 16px;}
 
 .navbar {
     border-bottom: 2px solid var(--borderColor);
@@ -67,6 +55,38 @@ h6 { font-size: 16px;}
     margin-top: 50px;
     width: 800px;
 
+}
+
+.button_nav {
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btn_login {
+    background-color: #4CAF50; 
+    color: white; 
+    border: 1px #4CAF50;
+    }
+.btn_login:hover {
+    background-color: #8BDB81;
+    color: black;
+    }
+
+.btn_logout {
+    background-color: #D82148; 
+    color: white; 
+    border: 1px red;
+}
+.btn_logout:hover {
+    background-color: red;
+    color: black;
 }
 
 .main-container {
@@ -129,6 +149,20 @@ h6 { font-size: 16px;}
     right: 0;
   }
 
+
+.common_div {
+    border-radius: 6px;
+    padding: 7px;
+    margin: auto;
+    background-color: #00AFC1;
+}
+
+.common_div h5 {
+    text-align: center;
+    padding-top: 7px;
+    color: white;
+    font-weight: 600;
+}
 
 
 

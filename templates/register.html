@@ -3,20 +3,23 @@
 {% block title %} REGISTER PAGE {% endblock title %}
 
 {% block body %}
+{% load crispy_forms_tags %}
   
 <div class="col-md-10 offset-md-1">
-    <div class="card-header p-2" style="border-radius:8px; background-color: #00AFC1;">
+    <div class="common_div">
    
-      <h4 class="text-white font-weight-bolder text-center mt-2 mb-0"><b>MANAGER REGISTER FORM</b></h4>
+      <h5>MANAGER REGISTER FORM</h5>
    
     </div><br>
 
     <form method="post">
         {% csrf_token %}
         
-        {{form.as_p}}
-        <br>
-        <div class="text-center"><button class="btn btn-success w-50 my-1 mb-2"><b>REGISTER</b></button></div>
+        {{form | crispy}}
+        
+        <div class="text-center"><button class="btn btn-success w-25 my-2 mb-2"><b>REGISTER</b></button></div>
+
+        <a href="/"> << Go back</a>
 
       </form>
 

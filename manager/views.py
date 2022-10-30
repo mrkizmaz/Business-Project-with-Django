@@ -37,7 +37,7 @@ def loginUser(request):
         
         user = authenticate(username = username, password = password)
         if user is None:
-            messages.error(request, message = 'Username or password is incorrect!')
+            messages.warning(request, message = 'Username or password is incorrect!')
             return render(request, 'login.html', context)
         
         messages.success(request, message = 'You have successfully logged in.')
@@ -47,4 +47,6 @@ def loginUser(request):
     return render(request, 'login.html', context) 
 
 def logoutUser(request):
-    pass
+    logout(request)
+    messages.info(request, message = "You have successfully logged out.")
+    return redirect("index")
