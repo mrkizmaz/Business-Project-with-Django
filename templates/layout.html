@@ -21,16 +21,32 @@
 </head>
 
 <body>
-    <br><br><br>
-
-    {% include "includes/navbar.html" %}
-    <br>
-    <section class="layout">
-        {% block body %}
-
-        {% endblock body %}
-    </section>
     
+    <br>
+    {% include "includes/navbar.html" %}
+
+    <div class="main-container">
+
+            {% if messages %}
+                
+            {% for message in messages %}
+                {% if message.tags == "info" %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        
+                {% endif %}
+            {% endfor %}
+            
+            {% endif %}
+
+     
+        {% block body %}
+        
+        {% endblock body %}
+
+     
+    </div>
 
 
 

@@ -5,7 +5,7 @@
     --borderColor: #adb5bd;
 
     --mainText: black;
-    --secondaryText: #4b5156;
+    --secondaryText: black;
 
     --previewBg: rgb(251, 249, 243, 0.8);
 
@@ -36,20 +36,18 @@ h1, h2, h3, h4, h5, h6, strong {
     0px 4px 1px rgba(0,0,0,0.1);
 }
 
-ul {
-    list-style: none;
-}
 
 p, li, span, label, input, textarea {
     color: var(--secondaryText);
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Source Sans Pro', sans-serif;
 }
+
 
 a {
     text-decoration: none;
-    font-weight: 900;
-    color: #17a2b8;
+    font-weight: 700;
 }
+
 
 h1 { font-size: 42px;}
 h2 { font-size: 34px;}
@@ -58,28 +56,78 @@ h4 { font-size: 22px;}
 h5 { font-size: 20px;}
 h6 { font-size: 16px;}
 
+.navbar {
+    border-bottom: 2px solid var(--borderColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
 
-.layout {
+    margin: auto;
+    margin-top: 50px;
+    width: 800px;
+
+}
+
+.main-container {
     background-color: var(--mainColor);
     border-bottom: 2px solid var(--borderColor);
     overflow: hidden;
     width: 700px;
     margin: auto;
+    padding: 20px;
+    margin-top: 10px;
 }
 
 
-.navbar {
-    margin: auto;
-    width: 800px;
-    border-radius: 10px;
-    overflow: hidden;
+.button-wrapper {
+    display: block;
+    max-width: 260px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-top: 10px;
 }
 
-.main-container {
-    width: 700px;
-    margin: auto;
-}
-
+.button {
+    background-color: var(--buttonColor);
+    border-radius: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+  }
+  
+.button span {
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    font-weight: 10;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+.button:hover span {
+    padding-right: 25px;
+  }
+  
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 
 
 
@@ -97,6 +145,9 @@ h6 { font-size: 16px;}
 @media screen and (max-width: 1200px) {
     .navbar {
         width: 95%;
+    }
+    .main-container {
+        width: 90%;
     }
 }
 
