@@ -18,15 +18,11 @@
       </li>
       <li class="nav-item active"><a href="/manager/logout"><button class="button_nav btn_logout"><b>Sign Out</b></button></a></li>
       {% else %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Already have an account?
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/manager/login">Manager Login</a>
-          <a class="dropdown-item" href="/employer/login">Employer Login</a>
-        </div>
-      </li>
+      <p style="padding: 10px; margin-bottom: 0; color: #e0ecf7;">
+        Already have an account?
+      </p>
+      <li class="nav-item active"><a href="/manager/login"><button class="button_nav btn_login"><b>Manager</b></button></a></li>
+      <li class="nav-item active"><a href="/employer/login"><button class="button_nav btn_login"><b>Employer</b></button></a></li>
       {% endif %}
     </ul>
  

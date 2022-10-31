@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', views.logoutManager, name = "logoutManager"),
     path('dashboard/', views.dashManager, name = "dashManager"),
     path('addpost/', views.addPost, name = "addPost"),
+    path('posts/post/<int:id>/', views.detailPost, name = "detailPost"),
 ]

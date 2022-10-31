@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
-
-import business
+from django.shortcuts import render, redirect, get_list_or_404
+from business.models import Business
 from .forms import RegisterForm_Manager, LoginForm_Manager, BusinessForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -54,7 +53,13 @@ def logoutManager(request):
     return redirect("index")
 
 def dashManager(request):
-    return render(request, "dash_manager.html")
+    posts = Business.objects.filter(publisher = request.user)
+
+    context = {
+        "posts": posts
+    }
+
+    return render(request, "dash_manager.html", context)
 
 def addPost(request):
     form = BusinessForm(request.POST or None)
@@ -63,8 +68,13 @@ def addPost(request):
         business = form.save(commit = False)
         business.publisher = request.user
         business.save()
-        
+
         messages.success(request, message = "Job posting created successfully.")
         return render(request, "dash_manager.html")
 
     return render(request, "add_post.html", {"form": form})
+
+def detailPost(request, id):
+    #post = Business.objects.filter(id = id).first()
+    post = get_list_or_404(Business, id = id)
+    return render(request, "detail_post.html", {"post":post})

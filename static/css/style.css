@@ -53,7 +53,7 @@ p, li, span, label, input, textarea {
 
     margin: auto;
     margin-top: 50px;
-    width: 800px;
+    width: 1000px;
 
 }
 
@@ -66,38 +66,50 @@ p, li, span, label, input, textarea {
     margin: 4px;
     transition-duration: 0.2s;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .btn_login {
-    background-color: #4CAF50; 
-    color: white; 
-    border: 1px #4CAF50;
+    background-color: #39aea87e; 
+    color: white;
+    border: 1px blue;
+    font-size: 14px;
+    margin-top: 7px;
     }
 .btn_login:hover {
-    background-color: #8BDB81;
+    background-color: #66D3FA;
     color: black;
     }
 
 .btn_logout {
-    background-color: #D82148; 
+    background-color: #d82149c4; 
     color: white; 
     border: 1px red;
+    font-size: 14px;
+    margin-top: 7px;
 }
 .btn_logout:hover {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.863);
     color: black;
 }
+
+.btn_logins {
+    background-color: #39AEA9; 
+    color: white;
+    border: 1px blue;
+    }
+.btn_logins:hover {
+    background-color: #66D3FA;
+    color: black;
+    }
 
 .main-container {
     background-color: var(--mainColor);
     border-bottom: 2px solid var(--borderColor);
     overflow: hidden;
-    width: 700px;
-    height: 1000px;
+    width: 900px;
     margin: auto;
     padding: 20px;
-    margin-top: 10px;
 }
 
 
