@@ -1,5 +1,3 @@
-from tabnanny import verbose
-from unittest.util import _MAX_LENGTH
 from django.db import models
 from ckeditor.fields import RichTextField
 
@@ -12,6 +10,7 @@ class Business(models.Model):
     qualifications = RichTextField()
     location = models.CharField(max_length = 50, verbose_name = "Location")
     published_date = models.DateTimeField(auto_now_add = True, verbose_name = "Published Date")
+    # job_image = models.ImageField(blank = True, null = True, verbose_name = "Add a picture (optional): ")
 
     def __str__(self):
         return self.position

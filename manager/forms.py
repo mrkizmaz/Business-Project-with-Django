@@ -38,4 +38,4 @@ class LoginForm_Manager(forms.Form):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = models.Business
-        fields = ["company", "position", "qualifications", "location"]
+        fields = ["company", "position", "location", "qualifications"]

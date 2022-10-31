@@ -10,5 +10,8 @@ urlpatterns = [
     path('logout/', views.logoutManager, name = "logoutManager"),
     path('dashboard/', views.dashManager, name = "dashManager"),
     path('addpost/', views.addPost, name = "addPost"),
-    path('posts/post/<int:id>/', views.detailPost, name = "detailPost"),
+    path('post/<int:id>/', views.detailPost, name = "detailPost"),
+    path('post/update/<int:id>/', views.updatePost, name = "updatePost"),
+    path('post/delete/<int:id>/', views.deletePost, name = "deletePost"),
+
 ]

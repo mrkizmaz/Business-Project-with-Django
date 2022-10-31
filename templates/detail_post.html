@@ -17,20 +17,21 @@
                     </p>
                 </div>
             </header>
-            <!-- 
-            <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+
+            <!--  image will be add later
+            {% if post.job_image %}
+                <img style="width: 250px; height: 150px; padding-bottom: 20px;" src="{{post.job_image.url}}" alt="best wishes" />
+            {% else %}
+            {% endif %}
             -->
+            
             <section class="mb-5">
                 <h5 class="fw-bolder mb-2 mt-2">Qualifications</h5>
-                <p>{{post.qualifications}}</p>
+                <p>{{post.qualifications | safe}}</p>
         </article>
 
     </div>
-  
 
 </div>
 
-
-
-  
 {% endblock body %}

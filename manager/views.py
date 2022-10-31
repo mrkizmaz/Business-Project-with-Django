@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from business.models import Business
 from .forms import RegisterForm_Manager, LoginForm_Manager, BusinessForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -52,6 +53,7 @@ def logoutManager(request):
     messages.info(request, message = "You have successfully logged out.")
     return redirect("index")
 
+@login_required(login_url = "index")
 def dashManager(request):
     posts = Business.objects.filter(publisher = request.user)
 
@@ -61,8 +63,9 @@ def dashManager(request):
 
     return render(request, "dash_manager.html", context)
 
+@login_required(login_url = "index")
 def addPost(request):
-    form = BusinessForm(request.POST or None)
+    form = BusinessForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
         business = form.save(commit = False)
@@ -75,6 +78,29 @@ def addPost(request):
     return render(request, "add_post.html", {"form": form})
 
 def detailPost(request, id):
-    #post = Business.objects.filter(id = id).first()
-    post = get_list_or_404(Business, id = id)
+    # post = Business.objects.filter(id = id).first()
+    post = get_object_or_404(Business, id = id)
     return render(request, "detail_post.html", {"post":post})
+
+@login_required(login_url = "index")
+def updatePost(request, id):
+    post = get_object_or_404(Business, id = id)
+    form = BusinessForm(request.POST or None, request.FILES or None, instance = post)
+    
+    if form.is_valid():
+        business = form.save(commit = False)
+        business.publisher = request.user
+        business.save()
+
+        messages.success(request, message = "The post updated successfully.")
+        return redirect("manager:dashManager")
+
+    return render(request, "update_post.html", {"form":form})
+
+@login_required(login_url = "index")
+def deletePost(request, id):
+    post = get_object_or_404(Business, id = id)
+
+    post.delete()
+    messages.success(request, message = "The post deleted successfully.")
+    return redirect("manager:dashManager")

@@ -27,12 +27,12 @@
         {% for i in posts %}
         <tr>
           <th scope="row">{{i.company}}</th>
-          <td><a href="/manager/posts/post/{{i.id}}">{{i.position}}</a></td>
+          <td><a href="/manager/post/{{i.id}}">{{i.position}}</a></td>
           <td>{{i.location}}</td>
           <td>{{i.published_date.date}}</td>
 
-          <td><a href="/manager/posts/update/{{i.id}}" class="btn btn-outline-success">Update</a></td>
-          <td><a href="/manager/posts/delete/{{i.id}}" class="btn btn-danger">Delete</a></td>
+          <td><a href="/manager/post/update/{{i.id}}" class="btn btn-outline-success">Update</a></td>
+          <td><a href="/manager/post/delete/{{i.id}}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% endfor %}
         
