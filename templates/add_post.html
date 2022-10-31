@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} POSTING {% endblock title %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+<div class="col-md-10 offset-md-1">
+    <div class="common_div">
+      
+        <h5>Posting a Job</h5>
+     
+    </div><br>
+      
+    <form method="post">
+        {% csrf_token %}
+
+        {{form | crispy}}
+        <div class="text-center"><button class="btn btn-success w-50 my-1 mb-2" type="submit"><b>PUBLISH</b></button></div>
+    </form>
+</div>
+
+
+  
+{% endblock body %}

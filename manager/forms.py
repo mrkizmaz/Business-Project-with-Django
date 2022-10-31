@@ -1,4 +1,5 @@
 from django import forms
+from business import models
 
 class RegisterForm_Manager(forms.Form):
     job_company = forms.CharField(max_length = 50, label = 'The Company:',
@@ -28,8 +29,13 @@ class RegisterForm_Manager(forms.Form):
         }
         return values
 
-class LoginForm(forms.Form):
+class LoginForm_Manager(forms.Form):
     username = forms.CharField(max_length = 50, label = 'Username:',
         widget = forms.TextInput(attrs = {'placeholder': 'username'}))
     password = forms.CharField(max_length = 20, label = 'Password:',
         widget = forms.PasswordInput(attrs = {'placeholder': 'password'}))
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = models.Business
+        fields = ["company", "position", "qualifications", "location"]

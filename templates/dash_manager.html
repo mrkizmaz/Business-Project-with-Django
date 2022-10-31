@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %} DASHBOARD PAGE {% endblock title %}
+
+{% block body %}
+
+{% csrf_token %}
+
+<div class="col-md-10 offset-md-1">
+    <div class="common_div">
+   
+      <h5>GENERAL FORM</h5>
+   
+    </div><br>
+
+    <div class="text-center"><a class="btn btn-success w-25 my-2 mb-2" href="/manager/addpost"><b>Publish</b></a></div>
+
+
+</div>
+
+
+
+
+  
+{% endblock body %}

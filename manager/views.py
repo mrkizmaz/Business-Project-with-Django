@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm_Manager, LoginForm
+
+import business
+from .forms import RegisterForm_Manager, LoginForm_Manager, BusinessForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -21,13 +23,13 @@ def registerManager(request):
         login(request, newUser) 
         messages.success(request, message = 'You have successfully registered.')
         
-        return redirect('index')
+        return redirect("index")
         
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'register_manager.html', context)
 
-def loginUser(request):
-    form = LoginForm(request.POST or None)
+def loginManager(request):
+    form = LoginForm_Manager(request.POST or None)
     
     context = {'form': form}
     
@@ -38,15 +40,31 @@ def loginUser(request):
         user = authenticate(username = username, password = password)
         if user is None:
             messages.warning(request, message = 'Username or password is incorrect!')
-            return render(request, 'login.html', context)
+            return render(request, 'login_manager.html', context)
         
         messages.success(request, message = 'You have successfully logged in.')
         login(request, user)
-        return redirect('index')
+        return redirect("index")
     
-    return render(request, 'login.html', context) 
+    return render(request, "login_manager.html", context) 
 
-def logoutUser(request):
+def logoutManager(request):
     logout(request)
     messages.info(request, message = "You have successfully logged out.")
     return redirect("index")
+
+def dashManager(request):
+    return render(request, "dash_manager.html")
+
+def addPost(request):
+    form = BusinessForm(request.POST or None)
+
+    if form.is_valid():
+        business = form.save(commit = False)
+        business.publisher = request.user
+        business.save()
+        
+        messages.success(request, message = "Job posting created successfully.")
+        return render(request, "dash_manager.html")
+
+    return render(request, "add_post.html", {"form": form})
