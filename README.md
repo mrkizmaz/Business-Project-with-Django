@@ -51,8 +51,7 @@
 <li><p>Projenin detaylı ek resimleri için ilgili <a href="https://github.com/mrkizmaz/Business-Project-with-Django/tree/main/images">images</a> sayfasını ziyaret edebilirsiniz.
 </p>
 </li>
-</ul> <br>
-
+</ul> 
 
 <h3>Edindiğim Kaynaklar</h3>
 <ul>
