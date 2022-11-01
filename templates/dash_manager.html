@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %} DASHBOARD PAGE {% endblock title %}
+{% block title %} Manager Page {% endblock title %}
 
 {% block body %}
 
@@ -8,9 +8,10 @@
 
 <div class="col-md-20 offset-md-0">
   <div class="common_div">
-    <h5>GENERAL FORM</h5>
+    <h5>MANAGER PAGE</h5>
+    <a href="/manager/users"><button class="button" style="border-radius: 50px; padding: 5px; background-color: rgba(0, 255, 255, 0.452);"><span style="font-size: 16px;">View Users</span></button></a>
   </div><br>
-
+  
     {% if posts %}
     <table class="table table-striped">
       <thead>
@@ -19,7 +20,6 @@
           <th scope="col">Position</th>
           <th scope="col">Location</th>
           <th scope="col">Published Date</th>
-          <th scope="col">Detail</th>
           
         </tr>
       </thead>
@@ -31,8 +31,8 @@
           <td>{{i.location}}</td>
           <td>{{i.published_date.date}}</td>
 
-          <td><a href="/manager/post/update/{{i.id}}" class="btn btn-outline-success">Update</a></td>
-          <td><a href="/manager/post/delete/{{i.id}}" class="btn btn-danger">Delete</a></td>
+          <td><a href="/manager/post/update/{{i.id}}" class="btn btn-outline-success" style="border-radius: 20px;">Update</a></td>
+          <td><a href="/manager/post/delete/{{i.id}}" class="btn btn-danger" style="border-radius: 20px;">Delete</a></td>
         </tr>
         {% endfor %}
         
@@ -43,7 +43,7 @@
     <div class="alert alert-danger">You do not have any posting records!</div>
     {% endif %}
 
-  <div class="text-center"><a class="btn btn-success w-25 my-2 mb-2" href="/manager/addpost"><b>Publish</b></a>
+  <div class="text-center"><a class="btn btn-success w-25 my-2 mb-2" href="/manager/addpost"><b>Publish Post</b></a>
   </div>
 
 

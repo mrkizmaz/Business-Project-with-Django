@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %} POSTING {% endblock title %}
+{% block title %} Update Page {% endblock title %}
 
 {% block body %}
 
@@ -17,7 +17,7 @@
         {% csrf_token %}
         {{form.media}}
         {{form | crispy}}
-        <div class="text-center"><button class="btn btn-success w-50 my-1 mb-2" type="submit"><b>UPDATE POST</b></button></div>
+        <div class="text-center"><button class="btn btn-success w-25 my-2 mb-2" type="submit"><b>Update Post</b></button></div>
     </form>
 </div>
 

@@ -26,9 +26,7 @@ body *{
 }
 
 h1, h2, h3, h4, h5, h6, strong {
-    color: var(--mainText);
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 500;
+    color: var(--mainColor);
 }
 
 a {
@@ -93,15 +91,6 @@ p, li, span, label, input, textarea {
     color: black;
 }
 
-.btn_logins {
-    background-color: #39AEA9; 
-    color: white;
-    border: 1px blue;
-    }
-.btn_logins:hover {
-    background-color: #66D3FA;
-    color: black;
-    }
 
 .main-container {
     background-color: var(--mainColor);

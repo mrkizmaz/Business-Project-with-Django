@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %} Employer Page {% endblock title %}
+
+{% block body %}
+
+{% csrf_token %}
+
+<div class="col-md-20 offset-md-0">
+    <div class="common_div">
+        <h5>EMPLOYER PAGE</h5>
+        <a href="/employer/profile"><button class="button"
+                style="border-radius: 50px; padding: 5px; background-color: rgba(0, 255, 255, 0.452);"><span
+                    style="font-size: 16px;">Profile</span></button></a>
+    </div><br>
+
+    {% if posts %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Publisher</th>
+                <th scope="col">The Company</th>
+                <th scope="col">Position</th>
+                <th scope="col">Location</th>
+                <th scope="col">Published Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in posts %}
+            <tr>
+                <th scope="row">{{i.publisher}}</th>
+                <td>{{i.company}}</td>
+                <td><a href="/employer/post-apply/{{i.id}}">{{i.position}}</a></td>
+                <td>{{i.location}}</td>
+                <td>{{i.published_date.date}}</td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    {% else %}
+    <div class="alert alert-danger">There are no job postings posted yet!</div>
+    {% endif %}
+
+</div>
+
+{% endblock body %}

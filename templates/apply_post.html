@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %} Apply Post {% endblock title %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <article>
+            <header class="mb-4">
+                <h3 class="fw-bolder mb-1" style="font-weight: 600;">{{post.position}}, <small>{{post.company}}</small>
+                </h3>
+                <div class="text-muted fst-italic mb-2">
+                    <p style="font-weight: 300;">
+                        Published by {{post.publisher.username}} <br>
+                        Published time: {{post.published_date.date}} <br>
+                        Location: {{post.location}}
+                    </p>
+                </div>
+            </header>
+            <section class="mb-5">
+                <h5 class="fw-bolder mb-2 mt-2">Qualifications</h5>
+                <p>{{post.qualifications | safe}}</p>
+        </article>
+    </div>
+
+    <div class="button-wrapper">
+        <button class="button"
+            style="width: 200px; border-radius: 50px; padding: 5px; background-color: rgba(8, 105, 150, 0.897);"><span>Apply</span></button>
+    </div>
+</div>
+
+{% endblock body %}

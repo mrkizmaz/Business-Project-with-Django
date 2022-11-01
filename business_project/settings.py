@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'business',
     'manager',
+    'employer',
     'ckeditor',
     'django_cleanup',
 ]

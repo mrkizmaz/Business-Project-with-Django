@@ -5,26 +5,18 @@
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
       <li class="nav-item nav-link active">Welcome, <b>{{request.user.username}}</b></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dashboard
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/manager/users">Check Users</a>
-          <a class="dropdown-item" href="/manager/posts">Business Posts</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/manager/dashboard">Dashboard</a>
-        </div>
-      </li>
-      <li class="nav-item active"><a href="/manager/logout"><button class="button_nav btn_logout"><b>Sign Out</b></button></a></li>
+      <li class="nav-item active"><a href="/manager/logout"><button class="button_nav btn_logout"><b>Sign
+              Out</b></button></a></li>
       {% else %}
-      <p style="padding: 10px; margin-bottom: 0; color: #e0ecf7;">
+      <p style="padding: 10px; margin-bottom: 0; color: #e0ecf7; font-size: 14px;">
         Already have an account?
       </p>
-      <li class="nav-item active"><a href="/manager/login"><button class="button_nav btn_login"><b>Manager</b></button></a></li>
-      <li class="nav-item active"><a href="/employer/login"><button class="button_nav btn_login"><b>Employer</b></button></a></li>
+      <li class="nav-item active"><a href="/manager/login"><button
+            class="button_nav btn_login"><b>Manager</b></button></a></li>
+      <li class="nav-item active"><a href="/employer/login"><button
+            class="button_nav btn_login"><b>Employer</b></button></a></li>
       {% endif %}
     </ul>
- 
+
   </div>
 </nav>

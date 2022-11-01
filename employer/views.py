@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from business.models import Business
-from .forms import RegisterForm_Manager, LoginForm_Manager, BusinessForm
+from .forms import RegisterForm_User, LoginForm_User
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -8,8 +8,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def registerManager(request):
-    form = RegisterForm_Manager(request.POST or None)
+def registerEmployer(request):
+    form = RegisterForm_User(request.POST or None)
 
     if form.is_valid():
         username = form.cleaned_data.get('username')
@@ -23,13 +23,13 @@ def registerManager(request):
         login(request, newUser) 
         messages.success(request, message = 'You have successfully registered.')
         
-        return redirect("manager:dashManager")
+        return redirect("employer:dashEmployer")
         
     context = {'form': form}
-    return render(request, 'register_manager.html', context)
+    return render(request, 'register_employer.html', context)
 
-def loginManager(request):
-    form = LoginForm_Manager(request.POST or None)
+def loginEmployer(request):
+    form = LoginForm_User(request.POST or None)
     
     context = {'form': form}
     
@@ -40,30 +40,35 @@ def loginManager(request):
         user = authenticate(username = username, password = password)
         if user is None:
             messages.warning(request, message = 'Username or password is incorrect!')
-            return render(request, 'login_manager.html', context)
+            return render(request, 'login_employer.html', context)
         
         messages.success(request, message = 'You have successfully logged in.')
         login(request, user)
-        return redirect("manager:dashManager")
-    
-    return render(request, "login_manager.html", context) 
+        return redirect("employer:dashEmployer")
 
-def logoutManager(request):
+    return render(request, "login_employer.html", context) 
+
+def logoutEmployer(request):
     logout(request)
     messages.info(request, message = "You have successfully logged out.")
     return redirect("index")
 
 @login_required(login_url = "index")
-def dashManager(request):
+def dashEmployer(request):
     posts = Business.objects.filter(publisher = request.user)
 
     context = {
         "posts": posts
     }
 
-    return render(request, "dash_manager.html", context)
+    return render(request, "dash_employer.html", context)
 
-@login_required(login_url = "index")
+def applyPost(request, id):
+    # post = Business.objects.filter(id = id).first()
+    post = get_object_or_404(Business, id = id)
+    return render(request, "apply_post.html", {"post":post})
+
+"""@login_required(login_url = "index")
 def addPost(request):
     form = BusinessForm(request.POST or None, request.FILES or None)
 
@@ -103,4 +108,4 @@ def deletePost(request, id):
 
     post.delete()
     messages.success(request, message = "The post deleted successfully.")
-    return redirect("manager:dashManager")
+    return redirect("manager:dashManager")"""
