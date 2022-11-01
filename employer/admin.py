@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employer
+"""from .models import Employer
 
 # Register your models here.
 
@@ -9,4 +9,4 @@ class Employer_Admin(admin.ModelAdmin):
     search_fields = ["position_int"]
 
     class Meta:
-        model = Employer
+        model = Employer"""

@@ -10,19 +10,21 @@
     <div class="common_div">
         <h5>EMPLOYER PAGE</h5>
         <a href="/employer/profile"><button class="button"
-                style="border-radius: 50px; padding: 5px; background-color: rgba(0, 255, 255, 0.452);"><span
+                style="border-radius: 50px; padding: 5px; background-color: rgba(0, 255, 255, 0.644);"><span
                     style="font-size: 16px;">Profile</span></button></a>
     </div><br>
 
-    <div class="common_div">
-        <h5>Active job postings;</h5>
+    <div class="common_div" style="background-color: #eaeaea;">
+        <h5 style="color: black;">Active job postings</h5>
+        <form class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+        <div class="common_div" style="background-color: rgba(0, 255, 255, 0.13);">
+            <input type="search" class="form-control rounded" style="width: 300px;" type="text" name="keyword" placeholder="job search..." aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-primary" style="background-color: rgba(0, 255, 179, 0.856); border: none; color: rgb(0, 132, 255);">Search</button>
+        </div>
+        </form>
     </div><br>
 
-    <form class="form-inline my-2 my-lg-0">
-        {% csrf_token %}
-        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
 
 
     {% if posts %}

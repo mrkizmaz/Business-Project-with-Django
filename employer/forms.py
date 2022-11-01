@@ -1,5 +1,5 @@
 from django import forms
-from employer import models
+from business import models
 
 class RegisterForm_Employer(forms.Form):
     username = forms.CharField(max_length = 50, label = 'Username:',
@@ -35,5 +35,5 @@ class LoginForm_Employer(forms.Form):
 
 class EmployerForm(forms.ModelForm):
     class Meta:
-        model = models.Employer
+        model = models.Employers
         fields = ["username", "position_int", "location", "skills", "resume"]

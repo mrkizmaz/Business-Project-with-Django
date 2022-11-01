@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from employer.models import Employer
-from business.models import Business
+#from employer.models import Employer
+from business.models import Business, Employers
 from .forms import RegisterForm_Employer, LoginForm_Employer, EmployerForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -70,12 +70,12 @@ def dashEmployer(request):
 
 @login_required(login_url = "index")
 def updateProfile(request, id):
-    profile = get_object_or_404(Employer, id = id)
+    profile = get_object_or_404(Business, id = id)
     form = EmployerForm(request.POST or None, request.FILES or None, instance = profile)
     
     if form.is_valid():
         employer = form.save(commit = False)
-        employer.usernmae = request.user
+        employer.username = request.user
         employer.save()
 
         messages.success(request, message = "Profile updated successfully.")

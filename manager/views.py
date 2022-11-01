@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from business.models import Business
+from business.models import Business, Employers
 from .forms import RegisterForm_Manager, LoginForm_Manager, BusinessForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -104,3 +104,9 @@ def deletePost(request, id):
     post.delete()
     messages.success(request, message = "The post deleted successfully.")
     return redirect("manager:dashManager")
+
+@login_required(login_url = "index")
+def allUsers(request):
+    posts = Employers.objects.all()
+    context = {"posts": posts}
+    return render(request, "users.html", context)

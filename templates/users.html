@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %} Manager Page {% endblock title %}
+
+{% block body %}
+
+{% csrf_token %}
+
+<div class="col-md-20 offset-md-0">
+  <div class="common_div">
+    <h5>MANAGER PAGE</h5>
+    <a href="/manager/users"><button class="button" style="border-radius: 50px; padding: 5px; background-color: rgba(0, 255, 255, 0.452);"><span style="font-size: 16px;">View Users</span></button></a>
+  </div><br>
+  
+    {% if posts %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Location</th>
+          <th scope="col">Created Date</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in posts %}
+        <tr>
+          <th scope="row"><a href="/manager/user/{{i.id}}">{{i.username}}</a></th>
+          <td>{{i.location}}</td>
+          <td>{{i.applied_date.date}}</td>
+
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+
+    {% else %}
+    <div class="alert alert-danger">You do not have any posting records!</div>
+    {% endif %}
+
+</div>
+
+
+</div>
+
+  
+{% endblock body %}

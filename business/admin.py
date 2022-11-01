@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Business
+from .models import Business, Employers
 
 # Register your models here.
+
+admin.site.register(Employers)
 
 @admin.register(Business)
 class Business_Admin(admin.ModelAdmin):
