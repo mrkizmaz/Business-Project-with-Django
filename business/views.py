@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from business.models import Business
-from .forms import BusinessForm
+# from .forms import BusinessForm
 
 # Create your views here.
 

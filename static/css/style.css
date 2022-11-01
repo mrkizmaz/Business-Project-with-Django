@@ -124,8 +124,6 @@ p, li, span, label, input, textarea {
 .button span {
     font-family: 'Russo One', sans-serif;
     text-align: center;
-    font-weight: 10;
-    font-size: 20px;
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -165,7 +163,6 @@ p, li, span, label, input, textarea {
     color: white;
     font-weight: 600;
 }
-
 
 
 

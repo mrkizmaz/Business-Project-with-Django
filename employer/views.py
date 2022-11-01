@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from employer.models import Employer
 from business.models import Business
-from .forms import RegisterForm_User, LoginForm_User
+from .forms import RegisterForm_Employer, LoginForm_Employer, EmployerForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -9,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def registerEmployer(request):
-    form = RegisterForm_User(request.POST or None)
+    form = RegisterForm_Employer(request.POST or None)
 
     if form.is_valid():
         username = form.cleaned_data.get('username')
@@ -29,7 +30,7 @@ def registerEmployer(request):
     return render(request, 'register_employer.html', context)
 
 def loginEmployer(request):
-    form = LoginForm_User(request.POST or None)
+    form = LoginForm_Employer(request.POST or None)
     
     context = {'form': form}
     
@@ -55,13 +56,33 @@ def logoutEmployer(request):
 
 @login_required(login_url = "index")
 def dashEmployer(request):
-    posts = Business.objects.filter(publisher = request.user)
+    keyword = request.GET.get("keyword")
 
-    context = {
-        "posts": posts
-    }
+    if keyword:
+        posts = Business.objects.filter(position__contains = keyword)
+        return render(request, "dash_employer.html", {"posts":posts})
+
+    posts = Business.objects.all()
+
+    context = {"posts": posts}
 
     return render(request, "dash_employer.html", context)
+
+@login_required(login_url = "index")
+def updateProfile(request, id):
+    profile = get_object_or_404(Employer, id = id)
+    form = EmployerForm(request.POST or None, request.FILES or None, instance = profile)
+    
+    if form.is_valid():
+        employer = form.save(commit = False)
+        employer.usernmae = request.user
+        employer.save()
+
+        messages.success(request, message = "Profile updated successfully.")
+        return redirect("employer:dashEmployer")
+
+    return render(request, "update_profile.html", {"form":form})
+
 
 def applyPost(request, id):
     # post = Business.objects.filter(id = id).first()

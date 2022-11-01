@@ -14,6 +14,17 @@
                     style="font-size: 16px;">Profile</span></button></a>
     </div><br>
 
+    <div class="common_div">
+        <h5>Active job postings;</h5>
+    </div><br>
+
+    <form class="form-inline my-2 my-lg-0">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
     {% if posts %}
     <table class="table table-striped">
         <thead>
@@ -41,7 +52,7 @@
     </table>
 
     {% else %}
-    <div class="alert alert-danger">There are no job postings posted yet!</div>
+    <div class="alert alert-danger">Job posting not found!</div>
     {% endif %}
 
 </div>

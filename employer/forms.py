@@ -1,7 +1,7 @@
 from django import forms
-from business import models
+from employer import models
 
-class RegisterForm_User(forms.Form):
+class RegisterForm_Employer(forms.Form):
     username = forms.CharField(max_length = 50, label = 'Username:',
         widget = forms.TextInput(attrs = {'placeholder': 'username', 'class':'form-control'}))
     email = forms.EmailField(max_length = 50, label = 'E-mail:',
@@ -27,13 +27,13 @@ class RegisterForm_User(forms.Form):
         }
         return values
 
-class LoginForm_User(forms.Form):
+class LoginForm_Employer(forms.Form):
     username = forms.CharField(max_length = 50, label = 'Username:',
         widget = forms.TextInput(attrs = {'placeholder': 'username'}))
     password = forms.CharField(max_length = 20, label = 'Password:',
         widget = forms.PasswordInput(attrs = {'placeholder': 'password'}))
 
-"""class BusinessForm(forms.ModelForm):
+class EmployerForm(forms.ModelForm):
     class Meta:
-        model = models.Business
-        fields = ["company", "position", "location", "qualifications"]"""
+        model = models.Employer
+        fields = ["username", "position_int", "location", "skills", "resume"]

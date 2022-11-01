@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} Update Page {% endblock title %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+<div class="col-md-10 offset-md-1">
+    <div class="common_div">
+      
+        <h5>Update Profile</h5>
+     
+    </div><br>
+      
+    <form method="post">
+        {% csrf_token %}
+        {{form.media}}
+        {{form | crispy}}
+        <div class="text-center"><button class="btn btn-success w-25 my-2 mb-2" type="submit"><b>Update Profile</b></button></div>
+    </form>
+</div>
+
+
+  
+{% endblock body %}

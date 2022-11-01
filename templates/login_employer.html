@@ -16,10 +16,10 @@
         {% csrf_token %}
 
         {{form | crispy}}
-        <br>
     
-        <p class="mt-4 text-sm text-center">Don't have an account? <a class="text-primary text-gradient font-weight-bold" href="/employer/register">Register</a></p>
-        <div class="text-center"><button class="btn btn-success w-25 my-2 mb-2" type="submit"><b>LOG IN</b></button></div>
+        <div class="text-center"><button class="btn btn-success w-25 my-2 mb-3" type="submit"><b>LOG IN</b></button></div>
+        <p class="text-center" style="margin-bottom: 3px; font-size: 14px; font-style: italic;">Don't have an account? <a href="/employer/register">Register</a></p>
+        <p class="text-center" style="margin-bottom: 3px; font-size: 14px; font-style: italic;">Forgot Password? <a href="#">Reset password</a></p>
     </form>
 </div>
 

@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/', views.loginEmployer, name = "loginEmployer"),
     path('logout/', views.logoutEmployer, name = "logoutEmployer"),
     path('dashboard/', views.dashEmployer, name = "dashEmployer"),
+    path('profile/update/<int:id>/', views.updateProfile, name = "updateProfile"),
     path('post-apply/<int:id>/', views.applyPost, name = "applyPost"),
     
     #path('addpost/', views.addPost, name = "addPost"),
