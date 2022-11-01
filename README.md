@@ -28,7 +28,7 @@
 <li>Kayıt ekranındaki her alanı başarılı bir şekilde dolduran kullanıcılar siteye kaydedilir.</li> <br>
 <p align="center">
 <img src="images/04_register_manager_page.png" width="400" height="250"> <br>
-<i>Yönetici kayıt sayfası, iş arayan için; <a href"https://github.com/mrkizmaz/Business-Project-with-Django/blob/main/images/05_register_employer_page.png">employer</a></i></p>
+<i>Yönetici kayıt sayfası</i></p>
 
 <li>Başarılı bir şekilde kayıt olan kullanıcılar, giriş sayfasına gerekli bilgileri girerek siteye giriş yapabilirler.</li> <br>
 <p align="center">
