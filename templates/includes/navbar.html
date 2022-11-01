@@ -5,7 +5,7 @@
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
       <li class="nav-item nav-link active">Welcome, <b>{{request.user.username}}</b></li>
-      <li class="nav-item active"><a href="/manager/logout"><button class="button_nav btn_logout"><b>Sign
+      <li class="nav-item active" style="padding-bottom:4px; margin-left: 4px;"><a href="/manager/logout"><button class="button_nav btn_logout"><b>Sign
               Out</b></button></a></li>
       {% else %}
       <p style="padding-top: 11px; color: #e0ecf7; font-size: 14px;">

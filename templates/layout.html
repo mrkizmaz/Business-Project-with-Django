@@ -18,7 +18,7 @@
     
     {% include "includes/navbar.html" %}
 
-    <div class="main-container">
+    <div class="main-container" style="background-color: rgba(0, 255, 255, 0.26)">
 
         {% if messages %}
             
@@ -38,7 +38,13 @@
         
         {% endblock body %}
 
-     
+        <footer>
+            <div class="footerCol" style="padding: 40px 0 0 0; text-align: center;">
+                <p>Copyright ©2022 Designed by <b>Ersel Kızmaz</b></p>
+            </div>
+        </footer>
+
+
     </div>
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>

@@ -166,6 +166,39 @@ p, li, span, label, input, textarea {
 
 
 
+/* --- SOCIAL LINKS SECTION --- */
+
+.footerCol {
+    padding: 0 0 30px 0;
+    text-align: center;
+  }
+
+.socialCol {
+    margin: 5px;
+  }
+
+.socialCol li {
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+.socialCol img {
+    width: 30px;
+    height: 30px;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+
+.copyrightCol {
+    padding: 5px 0 0 0;
+    font-size: 14px;
+  }
+
+.copyrightCol p {
+    margin: 0;
+  }
+
+
 
 
 
